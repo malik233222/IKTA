@@ -1,12 +1,14 @@
 .main-container {
     display: flex;
+    width: 95%;
 
-    .sidebar {
-       
-        
-    }
+
+    .sidebar {}
 
     .custom-container {
-        margin: 0 auto;
+        //   margin: 0 auto;
+        padding: 0 0 0 120px;
+        width: 100%;
+        
     }
 }

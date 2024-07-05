@@ -17,10 +17,8 @@ export default function Home() {
                     <a href=""> <FaPlus /> Təlimat</a>
                 </div>
                 <div className="search">
-                    <label >
-                        <CiSearch />
-                    </label>
-                    <input type="text" placeholder="         Axtar..." />
+                        <CiSearch style={{fontSize:25}} />
+                    <input type="text" placeholder=" Axtar..." />
                 </div>
             </div>
 
