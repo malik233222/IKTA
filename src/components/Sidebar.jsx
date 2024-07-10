@@ -71,7 +71,7 @@
 import React, { useState } from 'react';
 import logo from '../assets/images/gradient_black.png';
 import '../assets/style/sidebar.scss';
-import '../index.css';
+import '../index.scss';
 
 import { HiBars3BottomRight, HiBars3 } from "react-icons/hi2";
 import { FaPlus } from "react-icons/fa6";

@@ -8,7 +8,7 @@ export default function Header() {
         <nav>
 
             <div className='logo-wrapper'>
-                <Link to='icta.az'  ><img className='header-logo' src={logo} alt="" /></Link>
+                <Link to='https://icta.az/' target='_blank'  ><img className='header-logo' src={logo} alt="" /></Link>
             </div>
 
             <div className='user-inf'>

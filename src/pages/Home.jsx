@@ -4,6 +4,7 @@ import { CiSearch } from "react-icons/ci";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 export default function Home() {
     return (
@@ -12,7 +13,7 @@ export default function Home() {
 
             <div className="top" >
                 <div className="buttons" >
-                    <a href=""> <FaPlus /> yeni şikayət yarat</a>
+                    <Link to="new_complaint"> <FaPlus /> yeni şikayət yarat</Link>
                     <a href=""> <FaPlus /> Ətraflı axtarış</a>
                     <a href=""> <FaPlus /> Təlimat</a>
                 </div>
