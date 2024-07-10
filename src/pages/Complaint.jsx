@@ -45,10 +45,18 @@
 import React, { useState } from 'react';
 import { Field_Of_Action, Company, Character } from '../data/complaint';
 import "../assets/style/complaint.scss"
+import { MdOutlineFileUpload } from 'react-icons/md';
 
 export default function Complaint() {
     const [selectedField, setSelectedField] = useState('');
-    console.log(selectedField);
+    const [nameFiles, setNameFiles] = useState('');
+    const [image, setImage] = useState('');
+    const [city, setCity] = useState(null);
+
+
+
+
+
     const handleFieldChange = (event) => {
         setSelectedField(event);
     };
@@ -58,6 +66,21 @@ export default function Complaint() {
 
         console.log('Field of action selected:', selectedField);
     };
+
+    function onChange(event) {
+        var file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+            setImage(reader.result)
+            // The *.txt file text will be printed here
+            // console.log(event.target.result)
+
+        };
+        reader.readAsDataURL(file);
+        setNameFiles(file.name);
+        reader.readAsText(file);
+    }
+
 
     return (
         <div className="row">
@@ -173,31 +196,51 @@ export default function Complaint() {
                             <br />
                             <label htmlFor="Abunəçi kodu">Şikayət mətni     </label>
                             <br />
-                            <textarea className='rounded' name="" rows={10} cols={50} id=""></textarea>
+                            <textarea className='rounded' name="" rows={10} cols={40} id=""></textarea>
 
                         </div>
 
                         <div className="right col-3">
-                            {/* fILE READER QALDI SONRAYA */}
+                            <div className="file-upload">
+                                <input onChange={onChange} className='d-none' type="file" name="file-upload" id="file-upload" />
+                                {nameFiles ? (<>
+                                    <p>{nameFiles}</p>
+                                    <img style={{ width: 300 }} src={image} alt="" />
+                                </>
+                                ) : (
+
+                                    <label htmlFor="file-upload">
+                                        <MdOutlineFileUpload className='upload-icon' />
+                                        <span>Fayl Əlavə et</span>
+                                        <div className="file-description">
+                                            <span className='add-file'>Faylları buraya əlavə edin. Faylın ölçüsü maksimum 10 MB həcmində,
+                                                png, txt, jpeg, jpg, pdf formatında fayl əlavə edə bilərsiniz.</span>
+                                        </div>
+                                    </label>
+                                )}
+                            </div>
+
                         </div>
                     </form>
 
-                    <div className="col-12">
-                        <form >
-                            <div className="row">
+                    <div className="col-12 infos-wrapper">
+                        <form className='infos'>
+                            <div className="row infos-row">
                                 <div className="col-3">
-                                    <label htmlFor="">  Şəhəri seçin</label>
+                                    <label htmlFor="city"> Şəhəri seçin</label>
                                     <br />
-                                    <select name="city" id="city">
-                                        <option value=""> Baki</option>
-                                        <option value=""> Zərdab</option>
+                                    <select defaultValue={"option"} onChange={(e) => { setCity(e.target.value) }} name="city" id="city">
+                                        <option disabled value="option"> Şəhəri seçin</option>
+                                        <option value="baki"> Baki</option>
+                                        <option value="zerdab"> Zərdab</option>
 
                                     </select>
                                 </div>
                                 <div className="col-3">
-                                    <label htmlFor=""> Rayonu seçin</label>
+                                    <label htmlFor="district"> Rayonu seçin</label>
                                     <br />
-                                    <select name="city" id="city">
+                                    <select name="district" id="district" disabled={city === null ? true : city === "baki" ? false : true} >
+                                        <option value=""> Rayonu seçin</option>
                                         <option value=""> Baki</option>
                                         <option value=""> Zərdab</option>
 
@@ -206,9 +249,10 @@ export default function Complaint() {
                                 <div className="col-6">
                                     <div className="col-6">
 
-                                        <label htmlFor=""> Küçəni / Kəndi seçin</label>
+                                        <label htmlFor="street"> Küçəni / Kəndi seçin</label>
                                         <br />
-                                        <select name="city" id="city">
+                                        <select name="street" id="street" >
+                                            <option value=""> Küçəni / Kəndi seçin</option>
                                             <option value=""> Baki</option>
                                             <option value=""> Zərdab</option>
 
@@ -221,70 +265,64 @@ export default function Complaint() {
 
                                 <div className="home-apartment">
                                     <div className="house">
-                                        <label label="" htmlFor="apartment" required-field="" >Bina
+                                        <label htmlFor="apartment">Bina
                                             / Ev</label>
-                                        <input id="apartment" name="apartment" type="text" required_input="required" maxLength="10" />
-
-
-                                        <p className="cant_be_empty spec_house">Bu xana boş qoyula bilməz!</p>
+                                        <input type="text" name="apartment" id="apartment" />
                                     </div>
 
                                     <div className="divider-line"></div>
 
                                     <div className="flat">
                                         <label htmlFor="flat">Mənzil</label>
-                                        <input id="flat" name="flat" type="text" maxLength="10" />
-
-
-
+                                        <input type="text" name="flat" id="flat" />
                                     </div>
                                 </div>
 
 
 
 
-                                <div className="">
+                                <div className="number">
                                     <label htmlFor="complainant_contact_number" required-field="" >Əlaqə nömrəsi</label>
                                     <div className="input-group" >
-                                        <div className="dropdown" >
-                                            <span className="prefix">+994</span>
-                                            <select className="custom-select" id="dropdownMenuButton" name="prefix" >
-                                                <option value="(50)">(50)</option>
-                                                <option value="(51)">(51)</option>
-                                                <option value="(10)">(10)</option>
-                                                <option value="(55)">(55)</option>
-                                                <option value="(60)">(60)</option>
-                                                <option value="(99)">(99)</option>
-                                                <option value="(70)">(70)</option>
-                                                <option value="(77)">(77)</option>
-                                            </select>
-                                        </div>
+                                        <span className="prefix">+994</span>
+                                        <select className="custom-select" id="dropdownMenuButton" name="prefix" >
+                                            <option value="(50)">(50)</option>
+                                            <option value="(51)">(51)</option>
+                                            <option value="(10)">(10)</option>
+                                            <option value="(55)">(55)</option>
+                                            <option value="(60)">(60)</option>
+                                            <option value="(99)">(99)</option>
+                                            <option value="(70)">(70)</option>
+                                            <option value="(77)">(77)</option>
+                                        </select>
                                         <input id="complainant_contact_number" name="complainant_contact_number" type="text" required_input="required" maxLength="30" />
                                     </div>
-
-                                    <p className="cant_be_empty">Bu xana boş qoyula bilməz!</p>
                                 </div>
 
 
-                                <div className="">
+                                <div className="tel">
                                     <label htmlFor="stasionar_phone">Stasionar telefon</label>
                                     <input id="stasionar_phone" maxLength="20" name="stasionar_phone" type="text" />
 
 
                                 </div>
 
-                                <div className="">
+                                <div className="poct">
                                     <label htmlFor="email" required-field="" >E-poçt</label>
                                     <input id="email" name="email" placeholder="example@gmail.com" type="email" maxLength="30" required_input="required" />
 
 
 
-                                    <p className="cant_be_empty">Bu xana boş qoyula bilməz!</p>
+                                    {/* <p className="cant_be_empty">Bu xana boş qoyula bilməz!</p> */}
                                 </div>
 
 
                             </div>
                         </form>
+                    </div>
+
+                    <div className="col-12 submit-btn">
+                        <button className=' btn w-100' type='submit'> Şikayət yarat</button>
                     </div>
                 </div>
             </div>
