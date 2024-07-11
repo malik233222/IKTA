@@ -52,9 +52,16 @@ export default function Complaint() {
     const [nameFiles, setNameFiles] = useState('');
     const [image, setImage] = useState('');
     const [city, setCity] = useState(null);
+    const [text, setText] = useState('');
 
 
 
+
+    const maxLength = 1000;
+
+    const handleChange = (e) => {
+        setText(e.target.value);
+    }
 
 
     const handleFieldChange = (event) => {
@@ -194,9 +201,19 @@ export default function Complaint() {
                                 )
                             }
                             <br />
-                            <label htmlFor="Abunəçi kodu">Şikayət mətni     </label>
+                            <label htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{fontSize:'13px'}}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
                             <br />
-                            <textarea className='rounded' name="" rows={10} cols={40} id=""></textarea>
+                            <textarea
+                                className='rounded'
+                                name="complaint"
+                                rows={10}
+                                cols={40}
+                                id="complaint"
+                                maxLength={maxLength}
+                                value={text}
+                                onChange={handleChange}
+                            ></textarea>
+                            <p> simvol qaldı</p>
 
                         </div>
 
@@ -241,8 +258,8 @@ export default function Complaint() {
                                     <br />
                                     <select name="district" id="district" disabled={city === null ? true : city === "baki" ? false : true} >
                                         <option value=""> Rayonu seçin</option>
-                                        <option value=""> Baki</option>
-                                        <option value=""> Zərdab</option>
+                                        <option value=""> Nizami</option>
+                                        <option value=""> Nerimanov</option>
 
                                     </select>
                                 </div>
@@ -253,8 +270,8 @@ export default function Complaint() {
                                         <br />
                                         <select name="street" id="street" >
                                             <option value=""> Küçəni / Kəndi seçin</option>
-                                            <option value=""> Baki</option>
-                                            <option value=""> Zərdab</option>
+                                            <option value=""> 20 Yanvar</option>
+                                            <option value=""> 28 May</option>
 
                                         </select>
                                     </div>

@@ -194,9 +194,10 @@
                 .home-apartment {
                     width: 25%;
                     display: flex;
+                    gap: 53px;
+                    padding: 30px 0;
                     align-items: center;
-
-                    gap: 20px;
+                    justify-content: flex-start;
 
                     label {
                         margin-right: 4px;
@@ -212,6 +213,10 @@
                         /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
                         transition: all .2s ease;
                     }
+
+.house,.flat{
+    width: 25%;
+}
 
                     .divider-line {
                         width: 1px;
