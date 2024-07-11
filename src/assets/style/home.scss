@@ -44,6 +44,7 @@
 
     table {
         width: 100%;
+
         thead {
 
             tr {
@@ -63,6 +64,15 @@
                     height: 35px;
                     width: 12.6%;
 
+                    button {
+                        background-color: transparent;
+                        border: 0;
+                        color: white;
+
+                        &:focus{
+                            color: red;
+                        }
+                    }
 
 
                     div {
@@ -74,11 +84,11 @@
 
                 }
 
-                th:not(:last-child){
+                th:not(:last-child) {
                     border-right: 1px solid white;
 
                 }
-                
+
 
 
 
@@ -88,9 +98,14 @@
 
         tbody {
             tr {
+                display: flex;
+                // flex-wrap: nowrap;
 
                 td {
                     padding: 20px 0;
+                    width: 12.6%;
+                    text-align: center;
+
                 }
             }
         }
@@ -102,6 +117,8 @@
     justify-content: space-between;
 
     .dataTable_paginate {
+        display: flex;
+
         span {
             padding: 2px;
         }

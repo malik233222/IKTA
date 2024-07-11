@@ -5,8 +5,43 @@ import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { Complaint } from '../data/complaint';
+import { useState } from 'react';
 
 export default function Home() {
+
+    const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+    const [complaints, setComplaints] = useState(Complaint);
+    const [currentPage, setCurrentPage] = useState(1);
+    const rowsPerPage = 8;
+
+
+    const sortData = (key, direction) => {
+        setSortConfig({ key, direction });
+
+        const sortedData = [...complaints].sort((a, b) => {
+            if (a[key] < b[key]) {
+                return direction === 'ascending' ? -1 : 1;
+            }
+            if (a[key] > b[key]) {
+                return direction === 'ascending' ? 1 : -1;
+            }
+            return 0;
+        });
+        setComplaints(sortedData);
+    };
+
+    const handlePageChange = (direction) => {
+        if (direction === 'next' && currentPage * rowsPerPage < complaints.length) {
+            setCurrentPage(currentPage + 1);
+        } else if (direction === 'prev' && currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    const currentData = complaints.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
+
+
     return (
 
         <>
@@ -18,7 +53,7 @@ export default function Home() {
                     <a href=""> <FaPlus /> Təlimat</a>
                 </div>
                 <div className="search">
-                        <CiSearch style={{fontSize:25}} />
+                    <CiSearch style={{ fontSize: 25 }} />
                     <input type="text" placeholder=" Axtar..." />
                 </div>
             </div>
@@ -31,56 +66,85 @@ export default function Home() {
                                 <span>Şikayət nömrəsi
                                 </span>
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('complaint_number', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('complaint_number', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
                                 <span>Fəaliyyət sahəsi</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('field_of_action', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('field_of_action', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
                                 <span>Şirkət</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('company', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('company', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
                                 <span>Mövzu</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('subject', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('subject', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
                                 <span>Abunəçi kodu</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('subscriber_code', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('subscriber_code', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
                                 <span>Status</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('status', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('status', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
+
                             </th>
                             <th>
                                 <span>Tarix</span>
 
                                 <div>
-                                    <TiArrowSortedUp />
-                                    <TiArrowSortedDown />
+                                    <button onClick={() => sortData('date', 'ascending')}>
+                                        <TiArrowSortedUp />
+                                    </button>
+                                    <button onClick={() => sortData('date', 'descending')}>
+                                        <TiArrowSortedDown />
+                                    </button>
                                 </div>
                             </th>
                             <th>
@@ -95,21 +159,36 @@ export default function Home() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr className="text-center ">
-                            <td colspan="100%" rowspan="100%"> Heç bir şikayət əlavə edilməyib...   </td>
-
-                        </tr>
+                        {currentData.map((item, id) => (
+                            <tr key={id}>
+                                <td>{item.complaint_number}</td>
+                                <td>{item.field_of_action}</td>
+                                <td>{item.company}</td>
+                                <td>{item.subject}</td>
+                                <td>{item.subscriber_code}</td>
+                                <td>{item.status}</td>
+                                <td className='ps-4'>{item.date}</td>
+                                <td>salam</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
 
             <div className="bottom">
-                <div className="dataTables_info">Göstərilən: 0-0, cəmi 0 (0 səhifə)</div>
-
+                <div className="dataTables_info">
+                    Göstərilən: {currentData.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0}-
+                    {currentPage * rowsPerPage < complaints.length ? currentPage * rowsPerPage : complaints.length},
+                    cəmi {complaints.length} ({Math.ceil(complaints.length / rowsPerPage)} səhifə)
+                </div>
                 <div className="dataTable_paginate">
-                    <a href="#"> <MdKeyboardArrowLeft /> </a>
-                    <span></span>
-                    <a href="#"> <MdKeyboardArrowRight /> </a>
+                    <div onClick={() => handlePageChange('prev')}>
+                        <a href="#"><MdKeyboardArrowLeft /></a>
+                    </div>
+                    <span>{currentPage}</span>
+                    <div onClick={() => handlePageChange('next')}>
+                        <a href="#"><MdKeyboardArrowRight /></a>
+                    </div>
                 </div>
             </div>
 

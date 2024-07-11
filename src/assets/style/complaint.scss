@@ -113,7 +113,7 @@
                     &:hover {
                         background-color: #fff;
                         color: #686868;
-                        border-color: lightgray;    
+                        border-color: lightgray;
                     }
 
                     .upload-icon {
@@ -181,7 +181,47 @@
             }
 
             .infos-row {
+
                 display: flex;
+
+                .street-wrapper {
+                    gap: 20px;
+
+                    .addNewStreet {
+                        .container_addOption {
+                            position: relative;
+                            color: #000;
+                            
+                            input {
+                                width: 60px;
+                                height: 60px;
+                                transition: width 0.3s ease;
+                                /* Smooth transition for width change */
+                                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                                border: 0;
+                                outline: 0;
+                                padding: 0 0 0 60px;
+                            }
+
+                            input.expanded {
+                                width: 300px;
+                                /* Expanded width */
+                            }
+
+                            .icon-street {
+                                position: absolute;
+                                height: 60px;
+                                top: 0;
+                                left: 5px;
+                                font-size: 48px;
+
+                                .icon-minus{
+                                    font-size: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
             .home_num_container {
@@ -214,9 +254,10 @@
                         transition: all .2s ease;
                     }
 
-.house,.flat{
-    width: 25%;
-}
+                    .house,
+                    .flat {
+                        width: 25%;
+                    }
 
                     .divider-line {
                         width: 1px;

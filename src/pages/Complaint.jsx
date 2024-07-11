@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { Field_Of_Action, Company, Character } from '../data/complaint';
 import "../assets/style/complaint.scss"
 import { MdOutlineFileUpload } from 'react-icons/md';
+import { IoMdAddCircle } from 'react-icons/io';
+import { FaCircleMinus } from 'react-icons/fa6';
 
 export default function Complaint() {
     const [selectedField, setSelectedField] = useState('');
@@ -10,6 +12,11 @@ export default function Complaint() {
     const [image, setImage] = useState('');
     const [city, setCity] = useState(null);
     const [text, setText] = useState('');
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    const handleIconClick = () => {
+        setIsExpanded(!isExpanded);
+    }
 
 
 
@@ -158,7 +165,7 @@ export default function Complaint() {
                                 )
                             }
                             <br />
-                            <label htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{fontSize:'13px'}}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
+                            <label htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{ fontSize: '13px' }}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
                             <br />
                             <textarea
                                 className='rounded'
@@ -220,7 +227,7 @@ export default function Complaint() {
 
                                     </select>
                                 </div>
-                                <div className="col-6">
+                                <div className="street-wrapper col-6  d-flex">
                                     <div className="col-6">
 
                                         <label htmlFor="street"> Küçəni / Kəndi seçin</label>
@@ -232,7 +239,23 @@ export default function Complaint() {
 
                                         </select>
                                     </div>
-                                    <div className="col-6"></div>
+
+                                    <div className="col-6 addNewStreet">
+                                        <span>*Yeni küçə / kənd əlavə edin</span>
+                                        <div className="container_addOption">
+                                            <input
+                                                placeholder=' Küçəni əlavə edin... '
+                                                type="text"
+                                                className={isExpanded ? 'expanded' : ''}
+                                            />
+                                            <div className='icon-street d-flex align-items-center' onClick={handleIconClick}>
+                                                {isExpanded ? <FaCircleMinus className='icon-minus' /> : <IoMdAddCircle />}
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <div className="home_num_container">
