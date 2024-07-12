@@ -55,14 +55,14 @@ export default function Complaint() {
 
     return (
         <div className="row">
-            <div className="col-12">
+            <div className="col-12 ps-0">
                 <div className="container-complaint">
                     <div className='complaint-details-header-wrapper' >
                         <h3 className="complaint-details-header">Şikayət məlumatları</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="complaint-details row">
-                        <div className="left col-3">
+                    <form onSubmit={handleSubmit} className="complaint-details flex-xl-nowrap row">
+                        <div className="left col-12 col-xl-3">
                             <div className="option-field">
                                 <label htmlFor="type">Şikayət etdiyiniz fəaliyyət sahəsi</label>
                                 <select
@@ -153,7 +153,7 @@ export default function Complaint() {
                                 </select>
                             </div>
                         </div>
-                        <div className="center col-6">
+                        <div className="center mx-0  col-xl-6">
 
                             {(selectedField === "internet" || selectedField === "telefon") &&
                                 (<>
@@ -167,11 +167,11 @@ export default function Complaint() {
                             {/* <br /> */}
                             
                             <label  htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{ fontSize: '13px' }}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
-                            <textarea
-                                className='rounded'
+                            <textarea 
+                                className='rounded  w-100'
                                 name="complaint"
                                 rows={10}
-                                cols={40}
+                                // cols={40}
                                 id="complaint"
                                 maxLength={maxLength}
                                 value={text}
@@ -180,7 +180,7 @@ export default function Complaint() {
 
                         </div>
 
-                        <div className="right col-3">
+                        <div className="right  col-xl-3">
                             <div className="file-upload">
                                 <input onChange={onChange} className='d-none' type="file" name="file-upload" id="file-upload" />
                                 {nameFiles ? (<>
@@ -189,7 +189,7 @@ export default function Complaint() {
                                 </>
                                 ) : (
 
-                                    <label htmlFor="file-upload">
+                                    <label htmlFor="file-upload" >
                                         <MdOutlineFileUpload className='upload-icon' />
                                         <span>Fayl Əlavə et</span>
                                         <div className="file-description">
@@ -206,7 +206,7 @@ export default function Complaint() {
                     <div className="col-12 infos-wrapper">
                         <form className='infos'>
                             <div className="row infos-row">
-                                <div className="col-3">
+                                <div className="py-2 py-xl-0 col-xl-3">
                                     <label htmlFor="city"> Şəhəri seçin</label>
                                     <br />
                                     <select defaultValue={"option"} onChange={(e) => { setCity(e.target.value) }} name="city" id="city">
@@ -216,7 +216,7 @@ export default function Complaint() {
 
                                     </select>
                                 </div>
-                                <div className="col-3">
+                                <div className="py-2 col-xl-3">
                                     <label htmlFor="district"> Rayonu seçin</label>
                                     <br />
                                     <select name="district" id="district" disabled={city === null ? true : city === "baki" ? false : true} >
@@ -226,8 +226,8 @@ export default function Complaint() {
 
                                     </select>
                                 </div>
-                                <div className="street-wrapper col-6  d-flex">
-                                    <div className="col-6">
+                                <div className="street-wrapper py-2 col-xl-6  d-flex">
+                                    <div className="col-12 col-xl-6 top">
 
                                         <label htmlFor="street"> Küçəni / Kəndi seçin</label>
                                         <br />
@@ -239,7 +239,7 @@ export default function Complaint() {
                                         </select>
                                     </div>
 
-                                    <div className="col-6 addNewStreet">
+                                    <div className="col-12 col-xl-6 addNewStreet">
                                         <span>*Yeni küçə / kənd əlavə edin</span>
                                         <div className="container_addOption">
                                             <input
@@ -257,9 +257,9 @@ export default function Complaint() {
 
                                 </div>
                             </div>
-                            <div className="home_num_container">
+                            <div className="home_num_container flex-wrap flex-xl-nowrap">
 
-                                <div className="home-apartment">
+                                <div className="home-apartment ">
                                     <div className="house">
                                         <label htmlFor="apartment">Bina
                                             / Ev</label>

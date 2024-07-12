@@ -1,5 +1,5 @@
 import '../assets/style/home.scss'
-import { FaPlus } from "react-icons/fa6";
+import { FaEye, FaPlus } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import { MdKeyboardArrowLeft } from "react-icons/md";
@@ -170,7 +170,7 @@ export default function Home() {
                                 <td>{item.subscriber_code}</td>
                                 <td>{item.status}</td>
                                 <td className='ps-4'>{item.date}</td>
-                                <td>salam</td>
+                                <td><Link to='show_complaint'className='btn btn-primary'><FaEye /></Link></td>
                             </tr>
                         ))}
                     </tbody>

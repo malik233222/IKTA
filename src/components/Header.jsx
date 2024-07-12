@@ -12,7 +12,7 @@ export default function Header() {
             </div>
 
             <div className='user-inf'>
-                <span>MALİK ÇƏLƏBİYEV ZİYAFƏT OĞLU</span>
+                <span className='d-none d-md-flex'>MALİK ÇƏLƏBİYEV ZİYAFƏT OĞLU</span>
                 <CiUser className='user-logo' />
             </div>
 

@@ -1,3 +1,7 @@
+// *{
+//     border: 1px dashed red;
+// }
+
 .container-complaint {
 
     .complaint-details-header-wrapper {
@@ -30,7 +34,7 @@
         display: flex;
         border-radius: 0 0 10px 10px;
         flex-direction: row;
-        flex-wrap: nowrap;
+        // flex-wrap: nowrap;
         // align-items: center;
 
         .option-field {
@@ -187,11 +191,18 @@
                 .street-wrapper {
                     gap: 20px;
 
+                    .top {
+                        display: block;
+                        margin: 0;
+
+
+                    }
+
                     .addNewStreet {
                         .container_addOption {
                             position: relative;
                             color: #000;
-                            
+
                             input {
                                 width: 60px;
                                 height: 60px;
@@ -215,7 +226,7 @@
                                 left: 5px;
                                 font-size: 48px;
 
-                                .icon-minus{
+                                .icon-minus {
                                     font-size: 40px;
                                 }
                             }
@@ -334,5 +345,202 @@
         }
 
         margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .infos{
+        padding: 0 !important;
+    }
+    .center {
+        margin-bottom: 20px;
+    }
+
+    .right {
+        .file-upload {
+            height: auto !important;
+
+            label {
+                // height: 150px !important;
+            }
+        }
+    }
+
+    .home-apartment {
+        width: 90% !important;
+        display: flex;
+        flex-wrap: wrap;
+
+        .divider-line {
+            display: none;
+        }
+
+        .house,
+        .flat {
+            width: 100% !important;
+
+            input {
+                width: 100% !important;
+            }
+        }
+    }
+
+    .number {
+        width: 100% !important;
+
+        input {
+            width: 80%;
+        }
+    }
+
+    .tel,
+    .poct {
+        width: 100% !important;
+
+        input {
+            width: 100% !important;
+        }
+    }
+
+    .infos-row {
+        .street-wrapper {
+            flex-wrap: wrap;
+
+            .top {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .addNewStreet {
+                width: 100%;
+
+                .container_addOption {
+                    .expanded {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media (min-width: 500px) and (max-width: 756px) {
+    .center {
+        margin-bottom: 20px;
+    }
+
+    .right {
+        .file-upload {
+            height: auto !important;
+
+            label {
+                // height: 150px !important;
+            }
+        }
+    }
+
+    .home-apartment {
+        width: 90% !important;
+
+        .house,
+        .flat {
+            width: 50% !important;
+        }
+    }
+
+    .number {
+        width: 100% !important;
+
+        input {
+            width: 80%;
+        }
+    }
+
+    .tel,
+    .poct {
+        width: 100% !important;
+
+        input {
+            width: 100% !important;
+        }
+    }
+
+    .infos-row {
+        .street-wrapper {
+            flex-wrap: wrap;
+
+            .top {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .addNewStreet {
+                width: 100%;
+
+                .container_addOption {
+                    .expanded {
+                        width: 100% !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+@media (min-width: 756px) and (max-width: 1200px) {
+    .right {
+        .file-upload {
+            height: auto !important;
+
+            label {
+                // height: 150px !important;
+            }
+        }
+    }
+
+    .home-apartment {
+        width: 90% !important;
+
+        .house,
+        .flat {
+            width: 50% !important;
+        }
+    }
+
+    .number {
+        width: 100% !important;
+
+        input {
+            width: 50%;
+        }
+    }
+
+    .tel,
+    .poct {
+        width: 100% !important;
+
+        input {
+            width: 100% !important;
+        }
+    }
+
+    .infos-row {
+        .street-wrapper {
+            display: flex;
+            flex-direction: row;
+
+            .top {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .addNewStreet {
+                width: 50%;
+            }
+        }
     }
 }
