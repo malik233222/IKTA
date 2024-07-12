@@ -69,7 +69,7 @@
                         border: 0;
                         color: white;
 
-                        &:focus{
+                        &:focus {
                             color: red;
                         }
                     }
@@ -102,7 +102,7 @@
                 // flex-wrap: nowrap;
 
                 td {
-                    padding: 20px 0;
+                    padding: 10px 0;
                     width: 12.6%;
                     text-align: center;
 
@@ -115,19 +115,21 @@
 .bottom {
     display: flex;
     justify-content: space-between;
+    
 
     .dataTable_paginate {
         display: flex;
 
         span {
-            padding: 2px;
+            padding: 5px 13px;
+            font-weight: 600;
         }
+    }
 
-        a {
-            color: white;
-            padding: 10px;
-            font-size: 20px;
-            background-color: #3C6CB4;
-        }
+    a {
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+        background-color: #3C6CB4;
     }
 }

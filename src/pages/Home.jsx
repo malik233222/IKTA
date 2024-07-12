@@ -175,7 +175,7 @@ export default function Home() {
                 </table>
             </div>
 
-            <div className="bottom">
+            <div className="bottom px-4 mb-5">
                 <div className="dataTables_info">
                     Göstərilən: {currentData.length > 0 ? ((currentPage - 1) * rowsPerPage + 1) : 0}-
                     {currentPage * rowsPerPage < complaints.length ? currentPage * rowsPerPage : complaints.length},

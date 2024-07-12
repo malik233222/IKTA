@@ -8,6 +8,7 @@ import { HiBars3BottomRight, HiBars3 } from "react-icons/hi2";
 import { FaPlus } from "react-icons/fa6";
 import { TbHandClick } from "react-icons/tb";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,20 +23,20 @@ export default function Sidebar() {
         <div className="wrapper">
           <div className='bar-logo-wrapper'>
             {isOpen && <img src={logo} alt="" />}
-            <button className='bar-logo d-flex justify-content-center align-items-center' onClick={toggleSidebar}>
-              <HiBars3BottomRight className='fs-3 ' />
+            <button className='border-0 bg-transparent  bar-logo d-flex justify-content-center align-items-center' onClick={toggleSidebar}>
+              <HiBars3 className='fs-3 ' />
             </button>
           </div>
           <div className='menu-wrapper'>
-            <a href="">
+            <Link to="new_complaint">
               <span><FaPlus /></span>
               {/* {isOpen && <span  >Yeni şikayət yarat</span>} */}
               {isOpen ? <span  >Yeni şikayət yarat</span> : <span className='opacity-0 d-none' >Yeni şikayət yarat</span>}
-            </a>
-            <a href="">
+            </Link>
+            <Link to="/">
               <span><HiBars3 /></span>
               {isOpen && <span>Şikayətlər</span>}
-            </a>
+            </Link>
             <a href="">
               <span><TbHandClick /></span>
               {isOpen && <span>İsteklahçı təcrübəsi sorğusu</span>}

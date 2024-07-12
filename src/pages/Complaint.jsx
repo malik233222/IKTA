@@ -158,15 +158,15 @@ export default function Complaint() {
                             {(selectedField === "internet" || selectedField === "telefon") &&
                                 (<>
                                     <label htmlFor="Abunəçi kodu">Abunəçi kodu</label>
-                                    <br />
-                                    <input id='Abunəçi kodu' />
+                                    
+                                    <input className='mb-4' id='Abunəçi kodu' />
                                 </>
 
                                 )
                             }
-                            <br />
-                            <label htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{ fontSize: '13px' }}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
-                            <br />
+                            {/* <br /> */}
+                            
+                            <label  htmlFor="Abunəçi kodu">Şikayət mətni  <span style={{ fontSize: '13px' }}> (Qalan simvol sayı: <span className='text-success'> {maxLength - text.length} </span>)</span>   </label>
                             <textarea
                                 className='rounded'
                                 name="complaint"
@@ -177,7 +177,6 @@ export default function Complaint() {
                                 value={text}
                                 onChange={handleChange}
                             ></textarea>
-                            <p> simvol qaldı</p>
 
                         </div>
 
