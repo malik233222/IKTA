@@ -7,6 +7,8 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { Complaint } from '../data/complaint';
 import { useState } from 'react';
+import { HiOutlineFilter } from 'react-icons/hi';
+import { IoMdInformationCircleOutline } from 'react-icons/io';
 
 export default function Home() {
 
@@ -49,8 +51,8 @@ export default function Home() {
             <div className="top" >
                 <div className="buttons" >
                     <Link to="new_complaint"> <FaPlus /> yeni şikayət yarat</Link>
-                    <a href=""> <FaPlus /> Ətraflı axtarış</a>
-                    <a href=""> <FaPlus /> Təlimat</a>
+                    <a href=""  > <HiOutlineFilter /> Ətraflı axtarış</a>
+                    <a href=""> <IoMdInformationCircleOutline />Təlimat</a>
                 </div>
                 <div className="search">
                     <CiSearch style={{ fontSize: 25 }} />
