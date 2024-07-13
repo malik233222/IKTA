@@ -23,8 +23,19 @@ nav {
         }
     }
 }
+@media (max-width: 500px) {
+
+    
+    .header-logo {
+        width: 156px !important;
+        height: 32px !important;
+    }
+}
+
 
 @media (min-width: 576px) {
+
+    
     .header-logo {
         width: 156px;
         height: 32px;
