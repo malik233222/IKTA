@@ -40,7 +40,7 @@ export default function Sidebar() {
               {isOpen && <span>Şikayətlər</span>}
             </Link>
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <span><TbHandClick /></span>
               {isOpen && <span>İsteklahçı təcrübəsi sorğusu</span>}
             </button>
@@ -57,19 +57,19 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header border-0">
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header border-0">
               <TbHandClick className='icon-modal' />
-              <h2 class="modal-title  " id="exampleModalLabel">Sorğu</h2>
+              <h2 className="modal-title  " id="exampleModalLabel">Sorğu</h2>
             </div>
-            <div class="modal-body text-center ">
+            <div className="modal-body text-center ">
               İnternet xidmətləri üzrə istehlakçı təcrübəsi sorğusu
             </div>
-            <div class="modal-footer border-0 d-flex justify-content-around">
-              <a  target="_blank" href="https://bit.ly/4e7smCO?r=qr" type="button" class="btn btn-primary mr-5">Davam et</a>
-              <button type="button" class=" btn btn-primary " data-bs-dismiss="modal" aria-label="Close">Imtina Et</button>
+            <div className="modal-footer border-0 d-flex justify-content-around">
+              <a target="_blank" href="https://bit.ly/4e7smCO?r=qr" type="button" className="btn btn-primary mr-5">Davam et</a>
+              <button type="button" className=" btn btn-primary " data-bs-dismiss="modal" aria-label="Close">Imtina Et</button>
             </div>
           </div>
         </div>

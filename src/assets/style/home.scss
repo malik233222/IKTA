@@ -115,7 +115,7 @@
 .bottom {
     display: flex;
     justify-content: space-between;
-    
+
 
     .dataTable_paginate {
         display: flex;
@@ -131,5 +131,50 @@
         padding: 10px;
         font-size: 20px;
         background-color: #3C6CB4;
+    }
+}
+
+@media (max-width:665px) {
+    .top {
+        .buttons {
+            gap: 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            a {
+                width: 98%;
+                text-align: center;
+            }
+        }
+    }
+
+}
+
+@media (max-width:888px) {
+
+    // body{
+    //     overflow-x: scroll;
+    // }
+
+    .center {
+        overflow-x: scroll;
+
+    }
+
+    table {
+        thead {
+            tr {
+                margin-left: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width:1200px) {
+    .search {
+        width: 365px;
+
+        margin-left: 10px;
+
     }
 }
