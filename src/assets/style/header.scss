@@ -23,21 +23,31 @@ nav {
         }
     }
 }
+
 @media (max-width: 500px) {
 
-    
-    .header-logo {
-        width: 156px !important;
-        height: 32px !important;
+    .logo-wrapper {
+
+        .header-logo {
+            width: 156px !important;
+            height: 32px !important;
+        }
     }
+
+    .user-inf {
+        .user-logo {
+            font-size: 40px !important;
+        }
+    }
+
 }
 
 
 @media (min-width: 576px) {
 
-    
-    .header-logo {
-        width: 156px;
-        height: 32px;
-    }
+
+
+
+
+   
 }
