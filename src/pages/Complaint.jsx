@@ -155,7 +155,7 @@ export default function Complaint() {
                         </div>
                         <div className="center mx-0  col-xl-6">
 
-                            {(selectedField === "internet" || selectedField === "telefon") &&
+                            {(selectedField === ""  || selectedField === "internet" || selectedField === "telefon") &&
                                 (<>
                                     <label htmlFor="Abunəçi kodu">Abunəçi kodu</label>
                                     
@@ -216,7 +216,7 @@ export default function Complaint() {
 
                                     </select>
                                 </div>
-                                <div className="py-2 col-xl-3">
+                                <div className="py-2 py-md-0 col-xl-3">
                                     <label htmlFor="district"> Rayonu seçin</label>
                                     <br />
                                     <select name="district" id="district" disabled={city === null ? true : city === "baki" ? false : true} >
@@ -226,7 +226,7 @@ export default function Complaint() {
 
                                     </select>
                                 </div>
-                                <div className="street-wrapper py-2 col-xl-6  d-flex">
+                                <div className="street-wrapper py-2 py-md-0 col-xl-6  d-flex">
                                     <div className="col-12 col-xl-6 top">
 
                                         <label htmlFor="street"> Küçəni / Kəndi seçin</label>

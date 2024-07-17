@@ -1,0 +1,20 @@
+.accordion-header {
+
+    .accordion-button {
+        background-color: #3C6CB4 !important;
+        color: #fff !important;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+}
+
+.accordion-collapse {
+    .accordion-body {
+        .information-wrapper {
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 22px 10px;
+            margin: 0 1px;
+        }
+    }
+}
